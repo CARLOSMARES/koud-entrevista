@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "tvshow"
+  "defaultProject": "tvshow",
+  "cli": {
+    "analytics": "d21e56b6-064e-404f-89c7-4ee3b8671131"
+  }
 }
