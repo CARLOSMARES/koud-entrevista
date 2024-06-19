@@ -10,9 +10,11 @@ namespace tvshow.Controllers
     {
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<TvShow> Get()
         {
-            return new string[] { "Hola Mundo!!!!" };
+            List<TvShow> ts = [];
+            
+            return ts;
         }
 
         // GET api/values/5
