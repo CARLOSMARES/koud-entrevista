@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 //using tvshow.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,23 +13,37 @@ namespace tvshow.Controllers
         [HttpGet]
         public IEnumerable<TvShow> Get()
         {
-            List<TvShow> ts = [];
-            
-            return ts;
+            using(TvShowContext context = new()){
+                var tvShowData = context.TvShows;
+                return tvShowData;
+            }
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public TvShow Get(int id)
         {
-            return "value";
+             using(TvShowContext context = new()){
+                var tvShowData = context.TvShows.First(x => x.Id == id);
+                return tvShowData;
+            }
+        }
+
+        // GET api/values/Hercules
+        [HttpGet("{name}")]
+        public TvShow Get(string name)
+        {
+             using(TvShowContext context = new()){
+                var tvShowData = context.TvShows.First(x => x.Name == name);
+                return tvShowData;
+            }
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] Object obj)
+        public void Post([FromBody] List<TvShow> obj)
         {
-            string sentencia = "insert into tvShow (id, name, favorite) value (";
+
         }
 
         // PUT api/values/5
@@ -42,7 +57,10 @@ namespace tvshow.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            string setencia = "delete * from tvShow where id = " + id;
+            using(TvShowContext context = new()){
+                var entidad = context.TvShows.Single(x => x.Id == id);
+                context.TvShows.Remove(entidad);
+            }
         }
     }
 }
