@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,10 +22,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// private TvShowContext context = new TvShowContext();
-
-// app.MapGet("/api/v1", ()=>{
-//     context.TvShows();
-// });
+app.MapGet("/api/v1/All", async (TvShowContext context) =>
+{
+    return await context.TvShows.ToListAsync();
+});
 
 app.Run();

@@ -13,10 +13,6 @@ public class TvShowContext : DbContext
     {
     }
 
-    public TvShowContext()
-    {
-    }
-
     protected override void OnModelCreating(ModelBuilder modelbuilder){
         modelbuilder.Entity<TvShow>(entity =>{
             entity.HasKey(e => e.Id);
