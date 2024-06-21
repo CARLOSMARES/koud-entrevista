@@ -1,0 +1,6 @@
+@TvShowApi_HostAddress = http://localhost:5274
+
+GET {{TvShowApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
