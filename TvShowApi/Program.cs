@@ -27,4 +27,8 @@ app.MapGet("/api/v1/All", async (TvShowContext context) =>
     return await context.TvShows.ToListAsync();
 });
 
+app.MapGet("/api/v1/{id}", async (int id, TvShowContext context) =>{
+    return await context.TvShows.FirstOrDefaultAsync(x => x.Id == id);
+});
+
 app.Run();

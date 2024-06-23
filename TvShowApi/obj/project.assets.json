@@ -3886,24 +3886,25 @@
     ]
   },
   "packageFolders": {
-    "/home/codespace/.nuget/packages/": {}
+    "/Users/carlosignacioolanomares/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/workspaces/koud-entrevista/TvShowApi/TvShowApi.csproj",
+      "projectUniqueName": "/Users/carlosignacioolanomares/carlosmares/koud-entrevista/TvShowApi/TvShowApi.csproj",
       "projectName": "TvShowApi",
-      "projectPath": "/workspaces/koud-entrevista/TvShowApi/TvShowApi.csproj",
-      "packagesPath": "/home/codespace/.nuget/packages/",
-      "outputPath": "/workspaces/koud-entrevista/TvShowApi/obj/",
+      "projectPath": "/Users/carlosignacioolanomares/carlosmares/koud-entrevista/TvShowApi/TvShowApi.csproj",
+      "packagesPath": "/Users/carlosignacioolanomares/.nuget/packages/",
+      "outputPath": "/Users/carlosignacioolanomares/carlosmares/koud-entrevista/TvShowApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/codespace/.nuget/NuGet/NuGet.Config"
+        "/Users/carlosignacioolanomares/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3969,7 +3970,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

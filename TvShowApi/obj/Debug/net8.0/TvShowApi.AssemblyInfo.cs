@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TvShowApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05ba61f4e57768a5dc85498a634059eaff7c2018")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df80103da2a73c4594864d9cbcb8611159076b3d")]
 [assembly: System.Reflection.AssemblyProductAttribute("TvShowApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TvShowApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
