@@ -2,3 +2,104 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+body {
+  margin: 4%;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: black;
+    background: white;
+  }
+}
+
+form {
+  width: 100%;
+  height: 10vh;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 16px;
+  cursor: pointer;
+}
+
+tr:nth-child(even) {
+  background-color: black;
+  color: white;
+}
+
+tr:nth-child(odd) {
+  background-color: blue;
+  color: white;
+}
+
+.checkbox {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: crosshair;
+}
+
+.btn-primary {
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-secondary {
+  @apply bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-danger {
+  @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-success {
+  @apply bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-warning {
+  @apply bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-info {
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-link {
+  @apply text-blue-500 hover:text-blue-700;
+}
+
+.btn-outline-primary {
+  @apply border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white;
+}
+
+.btn-outline-secondary {
+  @apply border border-gray-500 text-gray-500 hover:bg-gray-500 hover:text-white;
+}
+
+.btn-outline-danger {
+  @apply border border-red-500 text-red-500 hover:bg-red-500 hover:text-white;
+}

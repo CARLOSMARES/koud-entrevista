@@ -7,6 +7,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<TvShowContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+var MyAllowSpecioficOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecioficOrigins, policy =>
+    {
+        policy.WithOrigins("*")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -21,6 +33,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors(MyAllowSpecioficOrigins);
 
 app.MapGet("/", () => "Hola Mundo");
 
@@ -34,7 +47,7 @@ app.MapGet("/api/v1/{id}", async (int id, TvShowContext context) =>
     return await context.TvShows.FirstOrDefaultAsync(x => x.Id == id);
 });
 
-app.MapGet("/api/v1/name/", async (string name, TvShowContext context) =>
+app.MapGet("/api/v1/search/{name}", async (string name, TvShowContext context) =>
 {
     return await context.TvShows.FirstOrDefaultAsync(x => x.Name == name);
 });
@@ -59,6 +72,7 @@ app.MapPut("/api/v1/", (TvShow tvShow, TvShowContext context) =>
     context.Update(tvShow);
     context.SaveChanges();
     return tvShow;
+    
 });
 
 app.Run();
