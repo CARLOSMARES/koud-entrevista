@@ -42,10 +42,10 @@ app.MapPost("/api/v1/New", async (TvShow tvShow, TvShowContext context) =>{
     context.SaveChanges();
 });
 
-app.MapDelete("/api/v1/{id}", async (int id, TvShowContext context) =>{
+app.MapDelete("/api/v1/{id}", (int id, TvShowContext context) =>{
     TvShow entidad = context.TvShows.First(x => x.Id == id);
-    return context.Remove(entidad);
     context.SaveChanges();
+    return context.Remove(entidad);
 });
 
 app.MapPut("/api/v1/", async (TvShow tvShow, TvShowContext context) =>{
