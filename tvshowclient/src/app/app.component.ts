@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { TvshowsService } from './services/tvshows.service';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule],
+  imports: [RouterOutlet, FormsModule, MatDialogModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -17,7 +19,7 @@ export class AppComponent {
   show: any;
   showArray: any[] = [];
 
-  constructor(private tvshowsService: TvshowsService) {}
+  constructor(private tvshowsService: TvshowsService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.getAll();
@@ -63,4 +65,9 @@ export class AppComponent {
       this.getAll();
     })
   }
+
+  openModal(){
+    this.dialog.open(ModalComponent);
+  }
+
 }
