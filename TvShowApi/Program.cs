@@ -22,33 +22,40 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/", ()=>"Hola Mundo");
+app.MapGet("/", () => "Hola Mundo");
 
 app.MapGet("/api/v1/All", async (TvShowContext context) =>
 {
     return await context.TvShows.ToListAsync();
 });
 
-app.MapGet("/api/v1/{id}", async (int id, TvShowContext context) =>{
+app.MapGet("/api/v1/{id}", async (int id, TvShowContext context) =>
+{
     return await context.TvShows.FirstOrDefaultAsync(x => x.Id == id);
 });
 
-app.MapGet("/api/v1/name/", async (string name, TvShowContext context) =>{
+app.MapGet("/api/v1/name/", async (string name, TvShowContext context) =>
+{
     return await context.TvShows.FirstOrDefaultAsync(x => x.Name == name);
 });
 
-app.MapPost("/api/v1/New", async (TvShow tvShow, TvShowContext context) =>{
-    return await context.TvShows.AddAsync(tvShow);
+app.MapPost("/api/v1/New", (TvShow tvShow, TvShowContext context) =>
+{
+    context.TvShows.Add(tvShow);
     context.SaveChanges();
+    return tvShow;
 });
 
-app.MapDelete("/api/v1/{id}", (int id, TvShowContext context) =>{
+app.MapDelete("/api/v1/{id}", (int id, TvShowContext context) =>
+{
     TvShow entidad = context.TvShows.First(x => x.Id == id);
+    context.Remove(entidad);
     context.SaveChanges();
-    return context.Remove(entidad);
+    return entidad;
 });
 
-app.MapPut("/api/v1/", async (TvShow tvShow, TvShowContext context) =>{
+app.MapPut("/api/v1/", (TvShow tvShow, TvShowContext context) =>
+{
     context.Update(tvShow);
     context.SaveChanges();
     return tvShow;
